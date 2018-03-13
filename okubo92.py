@@ -2,38 +2,37 @@ import sys
 import numpy as np
 from math import *
 
+# e = 1
+# n = 2
+# depth = 3
+# strike = 4
+# dip = 5
+# L = 6
+# W = 7
+# rake = 8
+# slip = 9.5
+# U3 = 10
+# rho = 11
+# rhop = 12.2
 
-G = 6.67384e-11
-nu = 0.25
-beta = 0.309e-5
+# (x, y, xoff=0, yoff=0,
+#             depth=5e3, length=1e3, width=1e3,
+#             slip=0.0, opening=10.0,
+#             strike=0.0, dip=0.0, rake=0.0,
+#             nu=0.25):
 
 
-e = 1
-n = 2
-depth = 3
-strike = 4
-dip = 5
-L = 6
-W = 7
-rake = 8
-slip = 9.5
-U3 = 10
-rho = 11
-rhop = 12.2
-
-
-def forward(x, y, xoff=0, yoff=0,
-            depth=5e3, length=1e3, width=1e3,
-            slip=0.0, opening=10.0,
-            strike=0.0, dip=0.0, rake=0.0,
-            nu=0.25):
+def forward(x, y, depth, strike, dip,
+            lenght, width, rake, slip,
+            opening, rho, rhop):
+    G = 6.67384e-11
+    nu = 0.25
+    beta = 0.309e-5
     e = x
     n = y
-    x = x - xoff
-    y = y - yoff
     strike = np.deg2rad(strike)
     dip = np.deg2rad(dip)
-    rake = np.de2rad(rake)
+    rake = np.deg2rad(rake)
     L = lenght
     W = width
     U1 = cos(rake)*slip
@@ -145,5 +144,7 @@ def forward(x, y, xoff=0, yoff=0,
                 U3*chinnery(Tg, x, p, L, W, q, dip, nu)) + \
         (rhop-rho)*G*U3*chinnery(Cg, x, p, L, W, q, dip, nu) - beta*dH
 
+    print(dG, dH)
 
-print(dG, dH)
+#
+# forward(5, 5, 6, 90, 90, 10, 10, 0, 5, 0, 2670, 2670)
