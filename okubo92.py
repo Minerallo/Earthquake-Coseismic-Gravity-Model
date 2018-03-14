@@ -2,6 +2,7 @@ import sys
 import numpy as np
 from math import *
 
+# not yet workin
 # e = 1
 # n = 2
 # depth = 3
@@ -146,5 +147,5 @@ def forward(x, y, depth, strike, dip,
 
     print(dG, dH)
 
-#
-# forward(5, 5, 6, 90, 90, 10, 10, 0, 5, 0, 2670, 2670)
+
+forward(5, 5, 6, 90, 90, 10, 10, 0, 5, 0, 2670, 2670)
