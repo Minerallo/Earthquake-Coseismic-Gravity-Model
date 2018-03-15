@@ -1,5 +1,3 @@
 # Earthquake-Coseismic-Gravity-Model
 
-test
-testb
-testc
+This program aims to calculate global cumulate cos-seismic gravity map
