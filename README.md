@@ -1,3 +1,3 @@
 # Earthquake-Coseismic-Gravity-Model
 
-This program aims to calculate global cumulate cos-seismic gravity map
+This program aims to calculate global cumulate co-seismic gravity map
