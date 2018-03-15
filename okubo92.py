@@ -126,8 +126,7 @@ def forward(x, y, depth, strike, dip,
         + (rhop-rho)*G*U3 \
         * chinnery(Cg, x, p, L, W, q, dip, nu) - beta*dH
 
-
-print(dG, dH)
+    print(dG, dH)
 
 
 forward(5, 5, 6, 90, 90, 10, 10, 0, 5, 0, 2670, 2670)
