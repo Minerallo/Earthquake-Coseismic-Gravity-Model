@@ -1,32 +1,31 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%Global Gravity change due to earthquake impact using Okubo 1992%%%%%%%%
+%%%  Global Gravity change due to earthquake impact using Okubo 1992   %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %============Goal=================================
-% -This code is calculating gravity change or Geoid change using the GCMT catalog 
+% -This code is calculating gravity change or elevation change using the GCMT catalog 
 %  and the analytic solution of Okubo 1992
 
 %============Requirements=========================
-%To install the GCMT catalogue, you need first to download the passive seismology toolbox "Seizmo".
+%To install the earthquakes catalog or GCMT catalog, you need first to download the passive seismology toolbox "Seizmo".
 %Either by dowloading the zipfile and then decompressed it
 %https://github.com/g2e/seizmo/archive/master.zip
 %or by using the Git command 
 %git clone git://github.com/g2e/seizmo.git
+
 %Once you have downloaded "Seizmo", in the command Window of Matlab,
 %tape "globalcmt_create" to create the GCMT catalog
 %then, tape "globalcmt_update" to update the last earthquakes.
 
-%% Clean up
+%============Code=================================
+
 clc; close all; clear all;
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%% Parametrisation %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Earthquake catalogue
+        
+%% GCMT catalog
 load('globalcmt_full.mat');
 
-%% list for rupture model known
+%% Sources Model of Large Earthquakes
+%http://www.tectonics.caltech.edu/slip_history/index.html
 Sumatraname='M122604A';Tohokuname='M201103110546A';Chile10name='C201002270634A';Iquique14name='C201404012346A';
 Balochistan13name='C201309241129A';Carlsberg03name='C071503F';Bhuj01name='M012601A';Jaya04name='C020704A';Ca04name='C092804H';
 Haiti10name='C201001122153A';EMC10name='C201004042240A';S_Sumatra07name='C200709121110A';Kash13name='C201304161044A';
@@ -84,7 +83,7 @@ lonlimest  =str2num(answer{2});
 latlimdown =str2num(answer{3});
 latlimup   =str2num(answer{4});
 
-%% Define model
+%% Define scaling law to use
 prompt2 = {'Model : 1-Leo10a, 2-Leo10b, 3-Leo10c, 4-YenMa11a, 5-YenMa11b, 6-YenMa11c, 7-WC94a, 8-WC94b '};
 dlg_title = 'Define Model';
 num_lines = 1;
@@ -92,7 +91,7 @@ defaultans2 = {'5'};
 answer2 = inputdlg(prompt2,dlg_title,num_lines,defaultans2);
 Model=str2num(answer2{1});
 
-%% Nodal plan
+%% Nodal plan to use
 prompt4 = inputdlg('Define nodal plan 1 or 2 or 3 if mixt','Nodal Plan choice:',[1 40]);
 nodal = str2num(prompt4{:});
 if any(nodal==3)
