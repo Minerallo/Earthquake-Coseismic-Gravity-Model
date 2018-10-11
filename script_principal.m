@@ -22,7 +22,8 @@
 % Wells, D. L., & Coppersmith, K. J. (1994). New empirical relationships among magnitude, rupture length, rupture width, rupture area, and surface displacement. Bulletin of the seismological Society of America, 84(4), 974-1002.
 % Yen, Y. T., & Ma, K. F. (2011). Source-scaling relationship for M 4.6�8.9 earthquakes, specifically for earthquakes in the collision zone of Taiwan. Bulletin of the Seismological Society of America, 101(2), 464-481.
 % Okubo, S. (1992). Gravity and potential changes due to shear and tensile faults in a half?space. Journal of Geophysical Research: Solid Earth, 97(B5), 7137-7144.
-
+%source model for large earthquake :  
+%-http://www.tectonics.caltech.edu/slip_history/index.html
 
 %============Code=================================
 
